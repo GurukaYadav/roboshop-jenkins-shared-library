@@ -42,7 +42,7 @@ def call() {
             }
             stage('arun') {
                 steps {
-                    sh "Guruka Arun-${COMPONENT}"
+                    sh "echo Guruka Arun-${COMPONENT}"
                 }
             }
         }
