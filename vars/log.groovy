@@ -17,14 +17,13 @@ def call(CASTE) {
                     echo "Guruka Avinash ${CASTE}"
                 }
             }
-        }
-        stages {
             stage('arun') {
                 steps {
-                    echo "Guruka Avinash ${CASTE}"
+                    echo "Guruka Arun ${CASTE}"
                 }
             }
         }
+
     }
 
 }
