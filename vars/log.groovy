@@ -6,7 +6,7 @@
 //    echo "WARNING: ${message}"
 //}
 
-def call(CASTE) {
+def call(COMPONENT) {
 
     pipeline {
         agent any
@@ -14,12 +14,12 @@ def call(CASTE) {
         stages {
             stage('avinash') {
                 steps {
-                    echo "Guruka Avinash ${CASTE}"
+                    echo "Guruka Avinash-${COMPONENT}"
                 }
             }
             stage('arun') {
                 steps {
-                    echo "Guruka Arun ${CASTE}"
+                    echo "Guruka Arun-${COMPONENT}"
                 }
             }
         }
@@ -27,3 +27,5 @@ def call(CASTE) {
     }
 
 }
+
+//The above is not great way of doing the things
