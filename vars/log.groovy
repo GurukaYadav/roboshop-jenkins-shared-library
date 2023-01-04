@@ -35,12 +35,12 @@ def call() {
     agent any
 
       stages {
-        stage('avinash') {
+        stage('avinash-${COMPONENT}') {
           steps {
             sh "echo Guruka Avinash-${COMPONENT}"
           }
         }
-        stage('arun') {
+        stage('arun-${COMPONENT}') {
           steps {
             sh "echo Guruka Arun-${COMPONENT}"
           }
