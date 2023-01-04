@@ -1,13 +1,10 @@
 def call() {
   node() {
 
+    common.pipelineInit()
+
     stage('Download Dependencies') {
-      sh '''
-        rm -rf *
-        branch: 'main', url: 'https://github.com/GurukaYadav/cart.git\'
-        ls -ltr
-        npm install
-      '''
+      sh 'npm install'
     }
   }
 }
