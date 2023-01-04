@@ -11,14 +11,12 @@
 //  }
 //}
 
-
-
 def call() {
   node() {
 
     stage('Download Dependencies') {
       steps {
-        sh 'ls -l'
+        sh 'ls -ltr'
       }
     }
   }
