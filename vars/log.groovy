@@ -30,22 +30,34 @@
 
 //The above is not great way of doing the things
 
+//def call() {
+//  pipeline {
+//    agent any
+//
+//      stages {
+//        stage('avinash') {
+//          steps {
+//            sh "echo Guruka Avinash-${COMPONENT}"
+//          }
+//        }
+//        stage('arun}') {
+//          steps {
+//            sh "echo Guruka Arun-${COMPONENT}"
+//          }
+//        }
+//      }
+//
+//  }
+//}
+
 def call() {
-  pipeline {
-    agent any
-
-      stages {
-        stage('avinash-${COMPONENT}') {
-          steps {
-            sh "echo Guruka Avinash-${COMPONENT}"
-          }
-        }
-        stage('arun-${COMPONENT}') {
-          steps {
-            sh "echo Guruka Arun-${COMPONENT}"
-          }
-        }
-      }
-
+  node() {
+    stage('avinash-${COMPONENT}') {
+      sh "echo Guruka Avinash Yadav-${COMPONENT}"
+    }
+    stage('arun-${COMPONENT}') {
+      sh "echo Guruka Arun Yadav-${COMPONENT}"
+    }
   }
+
 }
