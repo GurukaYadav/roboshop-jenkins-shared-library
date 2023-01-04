@@ -52,10 +52,10 @@
 
 def call() {
   node() {
-    stage('${COMPONENT}') {
+    stage('{{COMPONENT}}') {
       sh "echo Guruka Avinash Yadav"
     }
-    stage('${COMPONENT}') {
+    stage('{{COMPONENT}}') {
       sh "echo Guruka Arun Yadav"
     }
   }
