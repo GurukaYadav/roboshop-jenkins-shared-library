@@ -1,16 +1,3 @@
-//pipeline {
-//  agent any
-//
-//  stages {
-//    stage('Download Dependencies') {
-//      steps {
-//        sh 'npm install'
-//      }
-//    }
-//
-//  }
-//}
-
 def call() {
   node() {
 
@@ -24,3 +11,23 @@ def call() {
     }
   }
 }
+
+
+
+
+
+
+
+//pipeline {
+//  agent any
+//
+//  stages {
+//    stage('Download Dependencies') {
+//      steps {
+//        sh 'npm install'
+//      }
+//    }
+//
+//  }
+//}
+
