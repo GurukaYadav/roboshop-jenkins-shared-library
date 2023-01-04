@@ -18,7 +18,11 @@ def call() {
 
     stage('Download Dependencies') {
       steps {
-        sh 'npm install'
+        sh '''
+          git branch: 'main', url: 'https://github.com/GurukaYadav/cart.git'
+          ls -l
+          npm install
+        '''
       }
     }
   }
