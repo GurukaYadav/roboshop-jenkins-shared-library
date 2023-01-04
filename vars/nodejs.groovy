@@ -17,8 +17,9 @@ def call() {
   node() {
 
     stage('Download Dependencies') {
-      sh 'npm install'
+      steps {
+        sh 'npm install'
+      }
     }
-
   }
 }
