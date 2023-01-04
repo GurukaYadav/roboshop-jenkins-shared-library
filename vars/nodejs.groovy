@@ -3,8 +3,8 @@ def call() {
 
     stage('Download Dependencies') {
       sh '''
+          rm -rf *
           ls -ltr
-          npm install
       '''
     }
   }
