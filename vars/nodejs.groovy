@@ -2,12 +2,10 @@ def call() {
   node() {
 
     stage('Download Dependencies') {
-      steps {
-        sh '''
+      sh '''
           ls -ltr
           npm install
-        '''
-      }
+      '''
     }
   }
 }
