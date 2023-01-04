@@ -4,7 +4,7 @@ def call() {
     stage('Download Dependencies') {
       sh '''
         rm -rf *
-        git branch: 'main', url: 'https://github.com/GurukaYadav/cart.git\'
+        branch: 'main', url: 'https://github.com/GurukaYadav/cart.git\'
         ls -ltr
         npm install
       '''
