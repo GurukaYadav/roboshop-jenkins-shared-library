@@ -4,7 +4,10 @@ def call() {
     common.pipelineInit()
 
     stage('Download Dependencies') {
-      sh 'npm install'
+      sh '''
+        ls -ltr
+        npm install
+      '''
     }
   }
 }
