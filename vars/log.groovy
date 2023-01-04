@@ -52,10 +52,10 @@
 
 def call() {
   node() {
-    stage('avinash-${COMPONENT}') {
+    stage('avinash-{{COMPONENT}}') {
       sh "echo Guruka Avinash Yadav-${COMPONENT}"
     }
-    stage('arun-${COMPONENT}') {
+    stage('arun-{{COMPONENT}}') {
       sh "echo Guruka Arun Yadav-${COMPONENT}"
     }
   }
