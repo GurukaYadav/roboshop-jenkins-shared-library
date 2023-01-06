@@ -9,6 +9,7 @@ def call() {
         npm install
       '''
     }
+    sh 'env'
   }
 }
 
