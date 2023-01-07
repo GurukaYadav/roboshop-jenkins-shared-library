@@ -21,12 +21,18 @@ def publishArtifacts() {
         zip -r ${COMPONENT}-${TAG_NAME}.zip *.py ${COMPONENT}.ini requirements.txt
       '''
     }
-  }
-  stage('publish artifacts') {
-    withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
+    if ( env.APP_TYPE == 'nginx' ) {
       sh '''
-        curl -v -u ${user_name}:${pass} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://52.207.237.73:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
+        cd static
+        zip -r ../${COMPONENT}-${TAG_NAME}.zip *
       '''
     }
   }
+//  stage('publish artifacts') {
+//    withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
+//      sh '''
+//        curl -v -u ${user_name}:${pass} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://52.207.237.73:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
+//      '''
+//    }
+//  }
 }
