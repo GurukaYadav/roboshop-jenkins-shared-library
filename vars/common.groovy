@@ -29,5 +29,5 @@ def publishArtifacts() {
 //        curl -v -u ${user_name}:${pass} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://52.207.237.73:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
 //      '''
 //    }
-  }
+//  }
 }
