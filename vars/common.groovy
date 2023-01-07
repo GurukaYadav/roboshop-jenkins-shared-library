@@ -10,6 +10,12 @@ def publishArtifacts() {
     if ( env.APP_TYPE == 'nodejs' ) {
       sh "zip -r ${COMPONENT}-${TAG_NAME}.zip server.js node_modules"
     }
+    if ( env.APP_TYPE == 'maven' ) {
+      sh '''
+        mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+        zip -r ${COMPONENT}-${TAG_NAME}.zip ${COMPONENT}.jar
+      '''
+    }
   }
   stage('publish artifacts') {
     withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
