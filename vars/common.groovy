@@ -18,7 +18,7 @@ def publishArtifacts() {
     }
     if ( env.APP_TYPE == 'python' ) {
       sh '''
-        zip -r ${COMPONENT}-${TAG_NAME}.zip *.py ${COMPONENT}.ini requirments.txt
+        zip -r ${COMPONENT}-${TAG_NAME}.zip *.py ${COMPONENT}.ini requirements.txt
       '''
     }
   }
