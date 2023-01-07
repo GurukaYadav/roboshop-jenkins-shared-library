@@ -17,12 +17,12 @@ def publishArtifacts() {
       '''
     }
   }
-//  stage('publish artifacts') {
-//    withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
-//      sh '''
-//        echo "$user:$pass" | base64
-//        curl -v -u ${user_name}:${pass} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://52.207.237.73:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
-//      '''
-//    }
-//  }
+  stage('publish artifacts') {
+    withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
+      sh '''
+        echo "$user:$pass" | base64
+        curl -v -u ${user_name}:${pass} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://52.207.237.73:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
+      '''
+    }
+  }
 }
