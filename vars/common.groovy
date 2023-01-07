@@ -27,6 +27,11 @@ def publishArtifacts() {
         zip -r ../${COMPONENT}-${TAG_NAME}.zip *
       '''
     }
+    if ( env.APP_TYPE == 'golang' ) {
+      sh '''
+        zip -r ${COMPONENT}-${TAG_NAME}.zip 
+      '''
+    }
   }
   stage('publish artifacts') {
     withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
