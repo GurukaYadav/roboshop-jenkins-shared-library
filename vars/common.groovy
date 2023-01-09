@@ -36,7 +36,7 @@ def publishArtifacts() {
   stage('publish artifacts') {
     withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
       sh '''
-        curl -v -u ${user_name}:${pass} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://52.207.237.73:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
+        curl -v -u ${user_name}:${pass} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://3.226.252.29:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip
       '''
     }
   }
