@@ -10,7 +10,7 @@ def call() {
       '''
     }
 
-//    common.codeChecks()
+    common.codeChecks()
 
 
     if ( env.BRANCH_NAME == env.TAG_NAME )
