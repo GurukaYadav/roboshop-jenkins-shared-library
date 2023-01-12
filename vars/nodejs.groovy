@@ -10,6 +10,17 @@ def call() {
       '''
     }
 
+    stage('Quality Checks and Unit Tests') {
+      parallel([
+        qualityChecks: {
+          echo "Guruka Avinash Yadav"
+        },
+        unitTests: {
+          echo "Avinash"
+        }
+      ])
+    }
+
     if ( env.BRANCH_NAME == env.TAG_NAME )
     {
       common.publishArtifacts()
