@@ -24,7 +24,7 @@ def unitTests() {
   stage('Unit Tests') {
     if ( env.APP_TYPE == 'nodejs' ) {
       sh '''
-//      # npm run test
+        # npm run test
         echo "run test cases"
       '''
     }
