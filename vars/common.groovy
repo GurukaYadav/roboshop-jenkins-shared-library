@@ -5,6 +5,25 @@ def pipelineInit() {
   }
 }
 
+def codeChecks() {
+  stage('Quality Checks and Unit Tests') {
+    parallel([
+      qualityChecks: {
+        withCredentials([usernamePassword(credentialsId: '', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
+          sh '''
+          sonar-scanner -Dsonar.projectKey=${COMPONENT}  -Dsonar.host.url=http://172.31.86.208:9000 -Dsonar.login=${user_name} -Dsonar.password=${pass}
+          '''
+        }
+      },
+      unitTests: {
+        echo "Avinash"
+      }
+    ])
+  }
+}
+
+
+
 def publishArtifacts() {
   stage('prepare artifacts') {
     if ( env.APP_TYPE == 'nodejs' ) {
@@ -41,3 +60,5 @@ def publishArtifacts() {
     }
   }
 }
+
+

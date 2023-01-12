@@ -10,16 +10,8 @@ def call() {
       '''
     }
 
-    stage('Quality Checks and Unit Tests') {
-      parallel([
-        qualityChecks: {
-          echo "Guruka Avinash Yadav"
-        },
-        unitTests: {
-          echo "Avinash"
-        }
-      ])
-    }
+    common.codeChecks()
+    
 
     if ( env.BRANCH_NAME == env.TAG_NAME )
     {
