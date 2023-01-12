@@ -14,9 +14,35 @@ def codeChecks() {
         }
       },
       unitTests: {
-        echo "Avinash"
+        unitTests()
       }
     ])
+  }
+}
+
+def unitTests() {
+  stage('Unit Tests') {
+    if ( env.APP_TYPE == 'nodejs' ) {
+//    # npm run test
+      echo "run test cases"
+    }
+    if ( env.APP_TYPE == 'maven' ) {
+      # mvn test
+      echo "run test cases"
+    }
+    if ( env.APP_TYPE == 'python' ) {
+      # mvn test
+      echo "run test cases"
+    }
+    if ( env.APP_TYPE == 'nginx' ) {
+      # python -m unittest
+      echo "run test cases"
+    }
+    if ( env.APP_TYPE == 'golang' ) {
+      # go test
+      echo "run test cases"
+    }
+
   }
 }
 
