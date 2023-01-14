@@ -96,7 +96,7 @@ def publishArtifacts() {
     }
   }
   stage('Deploy artifacts to env') {
-    sh "build job: 'deploy-to-any-env', parameters: [string(name: 'COMPONENT', value: '${COMPONENT}'), string(name: 'ENV', value: '${ENV}'), string(name: 'APP_VERSION', value: '${TAG_NAME}')]"
+    build job: 'deploy-to-any-env', parameters: [string(name: 'COMPONENT', value: '${COMPONENT}'), string(name: 'ENV', value: '${ENV}'), string(name: 'APP_VERSION', value: '${TAG_NAME}')]
   }
 }
 
