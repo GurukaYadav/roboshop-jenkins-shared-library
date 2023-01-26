@@ -103,7 +103,7 @@ def publishArtifacts() {
   }
   promoteRelease("dev","qa")
 }
-
+ 
 
 
 def promoteRelease(SOURCE_ENV,DEST_ENV) {
