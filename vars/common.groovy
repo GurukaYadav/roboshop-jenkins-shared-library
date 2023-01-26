@@ -104,7 +104,6 @@ def publishArtifacts() {
   stage('mark QA release') {
     promoteRelease(SOURCE_ENV:"dev", DEST_ENV:"qa")
   }
-
 }
 
 
