@@ -102,7 +102,7 @@ def publishArtifacts() {
     echo 'Smoke tests ran'
   }
 
-  promoteRelease(SOURCE_ENV:"dev", ENV:"qa")
+  promoteRelease("dev", "qa")
 }
 
 def promoteRelease(SOURCE_ENV,ENV) {
