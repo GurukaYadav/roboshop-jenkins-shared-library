@@ -101,8 +101,10 @@ def publishArtifacts() {
   stage('Run smoke Tests') {
     echo 'Smoke tests ran'
   }
-  promoteRelease("dev","qa")
+  promoteRelease(SOURCE_ENV:"dev",DEST_ENV:"qa")
 }
+
+
 
 def promoteRelease(SOURCE_ENV,DEST_ENV) {
   withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
