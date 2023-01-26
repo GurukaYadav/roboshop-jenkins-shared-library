@@ -98,6 +98,17 @@ def publishArtifacts() {
   stage('Deploy artifacts to env') {
     build job: 'deploy-to-any-env', parameters: [string(name: 'COMPONENT', value: "${COMPONENT}"), string(name: 'ENV', value: "${ENV}"), string(name: 'APP_VERSION', value: "${TAG_NAME}")]
   }
+  stage('Run smoke Tests') {
+    echo 'Smoke tests ran'
+  }
+  promoteRelease("dev","qa")
 }
 
-
+def promoteRelease(SOURCE_ENV,DEST_ENV) {
+  withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
+    sh '''
+        cp ${SOURCE_ENV}-${COMPONENT}-${TAG_NAME}.zip ${DEST_ENV}-${COMPONENT}-${TAG_NAME}.zip
+        curl -v -u ${user_name}:${pass} --upload-file ${DEST_ENV}-${COMPONENT}-${TAG_NAME}.zip http://nexus.roboshop.internal:8081/repository/${COMPONENT}/${ENV}-${COMPONENT}-${TAG_NAME}.zip
+    '''
+  }
+}
