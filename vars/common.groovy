@@ -107,9 +107,9 @@ def publishArtifacts() {
 
 def promoteRelease(SOURCE_ENV,ENV) {
   withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
-    sh '''
+    sh """
         cp ${SOURCE_ENV}-${COMPONENT}-${TAG_NAME}.zip ${ENV}-${COMPONENT}-${TAG_NAME}.zip
         curl -v -u ${user_name}:${pass} --upload-file ${ENV}-${COMPONENT}-${TAG_NAME}.zip http://nexus.roboshop.internal:8081/repository/${COMPONENT}/${ENV}-${COMPONENT}-${TAG_NAME}.zip
-    '''
+    """
   }
 }
