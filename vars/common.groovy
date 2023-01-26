@@ -106,7 +106,6 @@ def publishArtifacts() {
   }
 }
 
-
 def promoteRelease(SOURCE_ENV,DEST_ENV) {
   withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
     sh '''
