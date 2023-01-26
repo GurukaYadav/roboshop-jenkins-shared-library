@@ -101,7 +101,7 @@ def publishArtifacts() {
   stage('Run smoke Tests') {
     echo 'Smoke tests ran'
   }
-  promoteRelease(SOURCE_ENV:"dev",DEST_ENV:"qa")
+  promoteRelease("dev","qa")
 }
 
 
