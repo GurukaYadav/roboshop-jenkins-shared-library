@@ -105,7 +105,7 @@ def publishArtifacts() {
   promoteRelease("dev", "qa")
 }
 
-promoteRelease(SOURCE_ENV,DEST_ENV) {
+def promoteRelease(SOURCE_ENV,DEST_ENV) {
   withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
     sh '''
         cp ${SOURCE_ENV}-${COMPONENT}-${TAG_NAME}.zip ${DEST_ENV}-${COMPONENT}-${TAG_NAME}.zip
