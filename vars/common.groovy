@@ -107,7 +107,7 @@ def publishArtifacts() {
 //  stage('Deploy artifacts to qa env') {
 //    build job: 'deploy-to-any-env', parameters: [string(name: 'COMPONENT', value: "${COMPONENT}"), string(name: 'ENV', value: "qa"), string(name: 'APP_VERSION', value: "${TAG_NAME}")]
 //  }
-//}
+}
 
 def promoteRelease(SOURCE_ENV,ENV) {
   withCredentials([usernamePassword(credentialsId: 'NEXUS3', passwordVariable: 'pass', usernameVariable: 'user_name')]) {
