@@ -98,15 +98,15 @@ def publishArtifacts() {
   stage('Deploy artifacts to dev env') {
     build job: 'deploy-to-any-env', parameters: [string(name: 'COMPONENT', value: "${COMPONENT}"), string(name: 'ENV', value: "${ENV}"), string(name: 'APP_VERSION', value: "${TAG_NAME}")]
   }
-//  stage('Run smoke Tests') {
-//    echo 'Smoke tests ran'
-//  }
-//  stage('mark QA release') {
-//    promoteRelease("dev", "qa")
-//  }
-//  stage('Deploy artifacts to qa env') {
-//    build job: 'deploy-to-any-env', parameters: [string(name: 'COMPONENT', value: "${COMPONENT}"), string(name: 'ENV', value: "qa"), string(name: 'APP_VERSION', value: "${TAG_NAME}")]
-//  }
+  stage('Run smoke Tests') {
+    echo 'Smoke tests ran'
+  }
+  stage('mark QA release') {
+    promoteRelease("dev", "qa")
+  }
+  stage('Deploy artifacts to qa env') {
+    build job: 'deploy-to-any-env', parameters: [string(name: 'COMPONENT', value: "${COMPONENT}"), string(name: 'ENV', value: "${ENV}"), string(name: 'APP_VERSION', value: "${TAG_NAME}")]
+  }
 }
 
 def promoteRelease(SOURCE_ENV,ENV) {
