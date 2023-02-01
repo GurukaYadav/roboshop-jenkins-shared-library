@@ -117,7 +117,7 @@ def publishArtifacts() {
 //
 //  promoteRelease("qa", "prod")
 //
-//}
+}
 //
 //
 //
