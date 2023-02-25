@@ -7,7 +7,7 @@ def call() {
     ])
     ansiColor('xterm') {
       stage('Terraform init') {
-        sh 'terraform init'
+        sh 'terraform init -var-file=env/${ENV}.tfvars'
       }
       stage('Terraform plan') {
         sh 'terraform plan -var-file=env/${ENV}.tfvars'
