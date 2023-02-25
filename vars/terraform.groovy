@@ -9,7 +9,7 @@ def call() {
       stage('Terraform init') {
         sh 'terraform init'
       }
-      stage('Terraform plan') {
+      stage('Terraform plan -var-file=env/${ENV}.tfvars') {
         sh 'terraform plan'
       }
       stage('Terraform apply') {
