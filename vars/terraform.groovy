@@ -12,7 +12,7 @@ def call() {
         git branch: 'main', url:'https://github.com/GurukaYadav/terraform-roboshop-mutable.git'
       }
       stage('Terraform init') {
-        sh 'terraform init'
+        sh 'terraform init  -backend-config=env/${ENV}-backend.tfvars'
       }
       stage('Terraform plan') {
         sh 'terraform plan'
