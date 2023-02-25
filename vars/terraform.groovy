@@ -6,8 +6,13 @@ def call() {
       ])
     ])
     ansiColor('xterm') {
+//  Here the checkout(code clone) from git is automatically done in declarative pipelines but in scripted pipelines we need to specifically add a stage to clone the repo //
+      stage('Code Checkout') {
+        sh 'rm -rf *'
+        sh 'git branch: \'main\', url: \'https://github.com/GurukaYadav/terraform-roboshop-mutable.git\''
+      }
       stage('Terraform init') {
-        sh 'terraform init -backend-config=env/${ENV}-backend.tfvars'
+        sh 'terraform init'
       }
       stage('Terraform plan') {
         sh 'terraform plan'
