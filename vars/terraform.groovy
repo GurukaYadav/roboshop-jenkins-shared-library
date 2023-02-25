@@ -1,5 +1,11 @@
 def call() {
   node() {
+    options {
+      ansiColor('xterm')
+    }
+    parameters {
+      choice(choices: ['dev', 'prod'], description: "Choose Environment", name: "ENV")
+    }
     stage('Terraform init') {
       sh 'terraform init'
     }
