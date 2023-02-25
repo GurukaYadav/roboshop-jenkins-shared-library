@@ -11,7 +11,7 @@ def call() {
         sh 'terraform plan'
       }
       stage('Terraform apply') {
-        sh 'terraform apply -auto-approve'
+        sh 'terraform apply -auto-approve -var-file=env/${var.ENV}.tfvars'
       }
     }
   }
