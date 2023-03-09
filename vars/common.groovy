@@ -105,8 +105,8 @@ def publishArtifacts() {
   promoteRelease("dev", "qa")
 
   stage('Deploy artifacts to qa env') {
-//    build job: 'deploy-to-any-env', parameters: [string(name: 'COMPONENT', value: "${COMPONENT}"), string(name: 'ENV', value: "qa"), string(name: 'APP_VERSION', value: "${TAG_NAME}")]
-    echo "Deploy to QA env"
+    build job: 'deploy-to-any-env', parameters: [string(name: 'COMPONENT', value: "${COMPONENT}"), string(name: 'ENV', value: "qa"), string(name: 'APP_VERSION', value: "${TAG_NAME}")]
+//    echo "Deploy to QA env"
   }
 
   testRuns()
