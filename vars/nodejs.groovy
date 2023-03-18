@@ -1,27 +1,28 @@
 def call() {
   env.EXTRA_OPTS=""
   node() {
+    ansiColor('xterm') {
 
-    common.pipelineInit()
+      common.pipelineInit()
 
-    stage('Download Dependencies') {
-      sh '''
+      stage('Download Dependencies') {
+        sh '''
         ls -ltr
         npm install
       '''
-    }
+      }
 
-    common.codeChecks()
+      common.codeChecks()
 
 
-    if ( env.BRANCH_NAME == env.TAG_NAME )
-    {
+      if (env.BRANCH_NAME == env.TAG_NAME) {
 //      common.publishArtifacts()
 //      The below is used for immutable ami creation
-      common.publishLocalArtifacts()
+        common.publishLocalArtifacts()
 
 //      The below one is used for immutable ami creation
-      common.publishAMI()
+        common.publishAMI()
+      }
     }
   }
 }
