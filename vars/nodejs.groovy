@@ -4,9 +4,9 @@ def call() {
     ansiColor('xterm') {
 
       common.pipelineInit()
-//      if (env.BRANCH_NAME == env.TAG_NAME) {
-//        sh 'git checkout ${TAG_NAME}'
-//      }
+      if (env.BRANCH_NAME == env.TAG_NAME) {
+        sh 'git checkout ${TAG_NAME}'
+      }
 
       stage('Download Dependencies') {
         sh '''
