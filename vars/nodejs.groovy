@@ -5,6 +5,10 @@ def call() {
 
       common.pipelineInit()
 
+      if (env.BRANCH_NAME == env.TAG_NAME) {
+        git checkout ${TAG_NAME}
+      }
+
       stage('Download Dependencies') {
         sh '''
         ls -ltr
