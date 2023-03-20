@@ -151,7 +151,7 @@ def promoteRelease(SOURCE_ENV,ENV) {
 def publishLocalArtifacts() {
   stage('prepare ami') {
     if (env.APP_TYPE == 'nodejs') {
-      sh "zip -r ${COMPONENT}-${TAG_NAME}.zip server.js node_modules"
+      sh 'zip -r ${COMPONENT}-${TAG_NAME}.zip server.js node_modules'
     }
     if (env.APP_TYPE == 'maven') {
       sh '''
