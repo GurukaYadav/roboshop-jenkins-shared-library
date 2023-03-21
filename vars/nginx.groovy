@@ -1,27 +1,27 @@
 def call() {
-  env.EXTRA_OPTS=""
+  env.EXTRA_OPTS = ""
   node() {
+    ansiColor('xterm') {
 
-    common.pipelineInit()
-//    if (env.BRANCH_NAME == env.TAG_NAME) {
-//      sh 'git checkout ${TAG_NAME}'
-//    }
+      common.pipelineInit()
+//      if (env.BRANCH_NAME == env.TAG_NAME) {
+//        sh 'git checkout ${TAG_NAME}'
+//      }
 
-    common.codeChecks()
+      common.codeChecks()
 
 
-    if ( env.BRANCH_NAME == env.TAG_NAME )
-    {
+      if (env.BRANCH_NAME == env.TAG_NAME) {
 //      common.publishArtifacts()
 //      The below is used for immutable ami creation
-      common.publishLocalArtifacts()
+        common.publishLocalArtifacts()
 
 //      The below one is used for immutable ami creation
-      common.publishAMI()
+        common.publishAMI()
+      }
     }
   }
 }
-
 
 
 
