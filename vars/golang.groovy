@@ -1,21 +1,28 @@
 def call() {
   env.EXTRA_OPTS=""
   node() {
+    ansiColor('xterm') {
 
-    common.pipelineInit()
+      common.pipelineInit()
 
-    stage('Install dependencies and Build Package') {
-      sh '''go mod init dispatch
+      stage('Install dependencies and Build Package') {
+        sh '''go mod init dispatch
             go get
             go build
       '''
-    }
+      }
 
-    common.codeChecks()
+      common.codeChecks()
 
-    if ( env.BRANCH_NAME == env.TAG_NAME )
-    {
-      common.publishArtifacts()
+      if (env.BRANCH_NAME == env.TAG_NAME) {
+//      common.publishArtifacts()
+//      The below is used for immutable ami creation
+        common.publishLocalArtifacts()
+
+//      The below one is used for immutable ami creation
+        common.publishAMI()
+      }
+
     }
   }
 }
