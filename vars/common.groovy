@@ -3,6 +3,7 @@ def pipelineInit() {
 //    sh 'rm -rf *'
     sh 'find . | sed -e "1d" | xargs rm -rf'
     git branch: 'main', url: "https://github.com/GurukaYadav/${COMPONENT}.git"
+//    The below is used to checkout tag instead of main branch.In above at the git branch, if we give ${TAG_NAME} it is not checking it out so normally it checkouts  main branch and if there is any tag created, it checkout the tag
     if (env.BRANCH_NAME == env.TAG_NAME) {
       sh 'git checkout ${TAG_NAME}'
     }
