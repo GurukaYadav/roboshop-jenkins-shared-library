@@ -2,7 +2,7 @@ def call() {
   env.EXTRA_OPTS="-Dsonar.java.binaries=./target"
   node() {
     ansiColor('xterm') {
-      
+
     common.pipelineInit()
 
     stage('Build Package') {
@@ -20,6 +20,7 @@ def call() {
 //      The below one is used for immutable ami creation
       common.publishAMI()
     }
+
     }
   }
 }
