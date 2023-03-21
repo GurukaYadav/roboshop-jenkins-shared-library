@@ -3,9 +3,9 @@ def call() {
   node() {
 
     common.pipelineInit()
-    if (env.BRANCH_NAME == env.TAG_NAME) {
-      sh 'git checkout ${TAG_NAME}'
-    }
+//    if (env.BRANCH_NAME == env.TAG_NAME) {
+//      sh 'git checkout ${TAG_NAME}'
+//    }
 
     common.codeChecks()
 
