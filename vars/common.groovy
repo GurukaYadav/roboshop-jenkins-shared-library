@@ -151,31 +151,31 @@ def promoteRelease(SOURCE_ENV,ENV) {
 def publishLocalArtifacts() {
   stage('prepare ami') {
     if (env.APP_TYPE == 'nodejs') {
-      sh '''
+      sh """
         zip -r ${COMPONENT}-${TAG_NAME}.zip server.js node_modules
-      '''
+      """
     }
     if (env.APP_TYPE == 'maven') {
-      sh '''
+      sh """
         mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
         zip -r ${COMPONENT}-${TAG_NAME}.zip ${COMPONENT}.jar
-      '''
+      """
     }
     if (env.APP_TYPE == 'python') {
-      sh '''
+      sh """
         zip -r ${COMPONENT}-${TAG_NAME}.zip *.py ${COMPONENT}.ini requirements.txt
-      '''
+      """
     }
     if (env.APP_TYPE == 'nginx') {
-      sh '''
+      sh """
         cd static
         zip -r ../${COMPONENT}-${TAG_NAME}.zip *
-      '''
+      """
     }
     if (env.APP_TYPE == 'golang') {
-      sh '''
+      sh """
         zip -r ${COMPONENT}-${TAG_NAME}.zip dispatch main.go 
-      '''
+      """
     }
   }
 }

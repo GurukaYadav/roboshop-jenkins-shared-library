@@ -10,9 +10,9 @@ def call() {
 
       stage('Download Dependencies') {
         sh '''
-        ls -ltr
-        npm install
-      '''
+          ls -ltr
+          npm install
+        '''
       }
 
       common.codeChecks()
